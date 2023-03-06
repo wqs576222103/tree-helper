@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "es6"
+    ],
+    "module": "ESNext",
+    "allowJs": false
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test"
+  ],
+  "include": [
+    "src/**/*"
+  ]
+}
