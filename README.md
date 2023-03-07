@@ -4,8 +4,6 @@ A small JavaScript utility library for tree data.
 
 Package with `rollup.js`, exported as `iife amd cmd cjs umd es6` module.
 
-Support most modern browsers, not include `IE`. Support Node 8+.
-
 ## Install
 
 ```bash
@@ -21,18 +19,13 @@ yarn add tree-helper
 examples:
 
 ```txt
-validate:
-  isBankCard,
-  isIdCard,
-  isPhoneNum,
-  validateMobile,
+find:
+  findNodeByKey
 
-collection:
-  toMapKey,
-  toMapValue,
+insert:
+  insertChildNode
 
-string:
-  strTemplate,
+delete:
 
 ```
 

@@ -5,13 +5,13 @@
   "type": "module",
   "main": "./dist/index.js",
   "scripts": {
-    "dev": "clear && pnpm run cpHtml && rollup --config -w",
+    "dev": "clear && rollup --config -w",
     "build": "clear && rollup --config",
-    "test": "pnpm run build && jest",
+    "test": "jest",
     "release": "pnpm run build && np --no-2fa --branch main --message v%s",
     "release:test": "pnpm run build && np --no-2fa --branch main --no-publish",
     "clear": "if [ -r dist/ ];then rm -r dist/;fi",
-    "cpHtml": "mkdir -p viewKit && cp -r ./index.html ./dist/"
+    "cpHtml": "mkdir -p dist && cp -r ./index.html ./dist/"
   },
   "keywords": [
     "typescript",
@@ -25,6 +25,11 @@
   "files": [
     "dist"
   ],
+  "jest": {
+    "testMatch": [
+      "**/__test/*.test.js"
+    ]
+  },
   "devDependencies": {
     "@babel/core": "^7.21.0",
     "@babel/preset-env": "^7.20.2",
