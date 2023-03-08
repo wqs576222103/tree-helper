@@ -1,28 +1,25 @@
 import { CHILDREN_NAME, KEY_NAME } from "../../const";
 import { TTreeNode } from "../../typings/index";
 
-type TParams = {
-  node: TTreeNode[] | TTreeNode;
-  key: string;
-  childrenName?: string;
-  keyName?: string;
-};
+type TNode = TTreeNode[] | TTreeNode;
 /**
  * 根据key查找树节点
- * @param params TParams
- * @returns TTreeNode
+ * @param node 树根节点
+ * @param key 目标key
+ * @param childrenName 树结构中子节点键名
+ * @param keyName 树结构中节点关键标识键名
+ * @returns node | null
  */
-export const findNodeByKey = (params: TParams): TTreeNode | null => {
-  const {
-    node,
-    key,
-    childrenName = CHILDREN_NAME,
-    keyName = KEY_NAME,
-  } = params;
+const findNodeByKey = (
+  node: TNode,
+  key: string,
+  childrenName: string = CHILDREN_NAME,
+  keyName: string = KEY_NAME
+): TTreeNode | null => {
   if (!node) return null;
   const treeData = Array.isArray(node) ? node : [node];
 
-  const loop = (tree: TParams["node"]): TTreeNode | null => {
+  const loop = (tree: TNode): TTreeNode | null => {
     const len = tree.length;
     for (let i = 0; i < len; i++) {
       const nodeItem = tree[i];
@@ -38,4 +35,4 @@ export const findNodeByKey = (params: TParams): TTreeNode | null => {
 
   return loop(treeData);
 };
-
+export default findNodeByKey;
